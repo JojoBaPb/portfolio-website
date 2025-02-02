@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dark Mode Toggle
     const themeToggle = document.createElement("button");
     themeToggle.id = "dark-mode-btn";
-    document.querySelector("header").appendChild(themeToggle);
+    document.body.appendChild(themeToggle); // Append directly to body for visibility
 
     function updateButtonText() {
         themeToggle.textContent = document.body.classList.contains("dark-mode") 
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Dark Mode";
     }
 
+    // Check if dark mode is enabled in localStorage
     if (localStorage.getItem("dark-mode") === "enabled") {
         document.body.classList.add("dark-mode");
     }
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateButtonText();
     });
 
-    // Dynamic Projects
+    // Dynamic Projects Rendering
     const projects = [
         {
             name: "Matchmaking Algorithm",
@@ -36,8 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    const projectsContainer = document.getElementById("projects-container");
+    // Target the correct container for the project cards
+    const projectsContainer = document.querySelector(".projects-container");
 
+    // Loop through the projects array and dynamically add project cards
     projects.forEach(project => {
         const projectCard = document.createElement("div");
         projectCard.classList.add("project-card");
@@ -52,18 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
         projectsContainer.appendChild(projectCard);
     });
 
-    // Interactive Project Card Animations
+    // Interactive Project Card Animations - Optional: Can be moved to CSS for clarity
     document.querySelectorAll(".project-card").forEach(card => {
         card.addEventListener("mouseenter", () => {
-            card.style.transform = "scale(1.1)";
+            card.classList.add("hovered"); // CSS class approach
         });
 
         card.addEventListener("mouseleave", () => {
-            card.style.transform = "scale(1)";
-        });
-
-        card.addEventListener("click", () => {
-            window.open(card.getAttribute("onclick").split("'")[1], "_blank");
+            card.classList.remove("hovered"); // CSS class approach
         });
     });
 });

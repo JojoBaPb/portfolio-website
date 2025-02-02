@@ -91,15 +91,24 @@ section {
     color: #555;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #222;
-    color: white;
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
 }
 
-.dark-mode .project {
+#dark-mode-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#dark-mode-btn:hover {
     background-color: #333;
-    color: white;
 }
 
 /* Button */
@@ -116,4 +125,10 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Hover Effect for Project Cards */
+.project-card.hovered {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
