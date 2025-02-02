@@ -1,31 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Check if the button already exists
-    if (document.getElementById("dark-mode-btn")) return;
-
-    // Create Dark Mode Toggle Button
+    // Dark Mode
     const themeToggle = document.createElement("button");
     themeToggle.textContent = "Toggle Dark Mode";
-    themeToggle.id = "dark-mode-btn"; // Ensure unique ID
+    themeToggle.id = "dark-mode-btn";
+    document.querySelector("header").appendChild(themeToggle);
 
-    // Find the header and add the button there
-    const header = document.querySelector("header");
-    header.appendChild(themeToggle);
-
-    // Load Dark Mode Preference from Local Storage
     if (localStorage.getItem("dark-mode") === "enabled") {
         document.body.classList.add("dark-mode");
     }
 
-    // Toggle Dark Mode
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
+        localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+    });
 
-        // Save preference in local storage
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("dark-mode", "enabled");
-        } else {
-            localStorage.setItem("dark-mode", "disabled");
+    // Dynamic Projects
+    const projects = [
+        {
+            name: "Matchmaking Algorithm",
+            description: "A fun matchmaking system exploring rigged mechanics.",
+            github: "https://github.com/JojoBaPb/matchmaking-algo"
+        },
+        {
+            name: "Portfolio Website",
+            description: "This portfolio site, built with HTML, CSS, and JavaScript.",
+            github: "https://github.com/JojoBaPb/portfolio-website"
         }
+    ];
+
+    const projectsContainer = document.getElementById("projects-container");
+
+    projects.forEach(project => {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project");
+        projectCard.innerHTML = `
+            <h3>${project.name}</h3>
+            <p>${project.description}</p>
+            <a href="${project.github}" target="_blank">View on GitHub</a>
+        `;
+        projectsContainer.appendChild(projectCard);
     });
 });
-
