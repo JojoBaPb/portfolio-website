@@ -1,64 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jojo's Portfolio</title>
     <link rel="stylesheet" href="/portfolio-website/css/styles.css" />
-  </head>
-<link rel="icon" type="image/x-icon" href="/portfolio-website/assets/favicon.ico">
+</head>
+<link rel="icon" type="image/x-icon" href="/portfolio-website/assets/favicon.ico" />
 
-  <!-- Standard favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/portfolio-website/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/portfolio-website/assets/favicon-16x16.png">
+<!-- Standard favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/portfolio-website/assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/portfolio-website/assets/favicon-16x16.png" />
 
 <!-- Apple Touch Icon (For iPhones & iPads) -->
-<link rel="apple-touch-icon" sizes="180x180" href="/portfolio-website/assets/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/portfolio-website/assets/apple-touch-icon.png" />
 
 <!-- Android & Microsoft -->
-<link rel="manifest" href="/portfolio-website/assets/site.webmanifest">
-<link rel="mask-icon" href="/portfolio-website/assets/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#2d89ef">
-<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="/portfolio-website/assets/site.webmanifest" />
+<link rel="mask-icon" href="/portfolio-website/assets/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#ffffff" />
 
-  <body>
+<body>
     <header>
-      <h1>Jojo</h1>
-      <p>Software Engineer | Full-Stack Developer</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <h1>Jojo</h1>
+        <p>Software Engineer | Full-Stack Developer</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am an aspiring full-stack developer with a passion for efficiency and
-        problem-solving.
-      </p>
+        <h2>About Me</h2>
+        <p>
+            I am an aspiring full-stack developer with a passion for efficiency and
+            problem-solving.
+        </p>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <div id="projects-container"></div>
-    </section>
-      <div class="project">
-        <h3>All Projects</h3>
-        <p>Link to my GitHub below.</p>
-        <a href="https://github.com/JojoBaPb" target="_blank">GitHub Repository</a>
-      </div>
+        <div class="projects-container">
+            <div class="project-card" onclick="window.open('https://github.com/JojoBaPb/matchmaking-algo', '_blank')">
+                <img src="assets/images/matchmaking-algo-thumbnail.jpg" alt="Matchmaking Algorithm">
+                <div class="project-info">
+                    <h3>Matchmaking Algorithm</h3>
+                    <p>A fun matchmaking system exploring rigged mechanics.</p>
+                </div>
+            </div>
+    
+            <div class="project-card" onclick="window.open('https://github.com/JojoBaPb/portfolio-website', '_blank')">
+                <img src="assets/images/portfolio-thumbnail.jpg" alt="Portfolio Website">
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>This portfolio site, built with HTML, CSS, and JavaScript.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: sipo.jmudenda@gmail.com</p>
-      <p>
-        GitHub: <a href="https://github.com/JojoBaPb" target="_blank">GitHub</a>
-      </p>
+        <h2>Contact</h2>
+        <p>Email: sipo.jmudenda@gmail.com</p>
+        <p>
+            GitHub: <a href="https://github.com/JojoBaPb" target="_blank">GitHub</a>
+        </p>
     </section>
 
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
