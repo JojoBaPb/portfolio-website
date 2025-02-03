@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Dark Mode Toggle
-    const themeToggle = document.createElement("button");
-    themeToggle.id = "dark-mode-btn";
-    document.body.appendChild(themeToggle); // Append directly to body for visibility
+    // Select the existing button (instead of appending it)
+    const themeToggle = document.getElementById("dark-mode-btn");
 
     function updateButtonText() {
         themeToggle.textContent = document.body.classList.contains("dark-mode") 
