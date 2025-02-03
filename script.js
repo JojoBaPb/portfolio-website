@@ -26,12 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             name: "Matchmaking Algorithm",
             description: "A fun matchmaking system exploring rigged mechanics.",
-            github: "https://github.com/JojoBaPb/matchmaking-algo"
+            github: "https://github.com/JojoBaPb/matchmaking-algo",
+            image: "assets/images/matchmaking_algo_thumbnail.jpg"
         },
         {
             name: "Portfolio Website",
             description: "This portfolio site, built with HTML, CSS, and JavaScript.",
-            github: "https://github.com/JojoBaPb/portfolio-website"
+            github: "https://github.com/JojoBaPb/portfolio-website",
+            image: "assets/images/p_folio_website_thumbnail.jpg"
         }
     ];
 
@@ -40,18 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Loop through the projects array and dynamically add project cards
     projects.forEach(project => {
-        const projectCard = document.createElement("div");
-        projectCard.classList.add("project-card");
-        projectCard.innerHTML = `
-            <img src="assets/images/${project.name.toLowerCase().replace(/ /g, "-")}-thumbnail.jpg" alt="${project.name}">
-            <div class="project-info">
-                <h3>${project.name}</h3>
-                <p>${project.description}</p>
-            </div>
-        `;
-        projectCard.setAttribute("onclick", `window.open('${project.github}', '_blank')`);
-        projectsContainer.appendChild(projectCard);
-    });
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("project-card");
+    projectCard.innerHTML = `
+        <img src="${project.image}" alt="${project.name}">
+        <div class="project-info">
+            <h3>${project.name}</h3>
+            <p>${project.description}</p>
+        </div>
+    `;
+    projectCard.onclick = () => window.open(project.github, "_blank");
+    projectsContainer.appendChild(projectCard);
+});
 
     // Interactive Project Card Animations - Optional: Can be moved to CSS for clarity
     document.querySelectorAll(".project-card").forEach(card => {

@@ -114,6 +114,19 @@ body.dark-mode h3 {
     color: #ffffff;
 }
 
+/* Dark Mode Styles for Project Cards */
+body.dark-mode .project-card {
+    background-color: #222;
+    /* Darker card background */
+    color: #fff;
+    /* White text for contrast */
+}
+
+body.dark-mode .project-info p {
+    color: #ccc;
+    /* Slightly lighter text for better readability */
+}
+
 /* Dark Mode Button Styling */
 #dark-mode-btn {
     padding: 10px 15px;
