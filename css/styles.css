@@ -47,45 +47,120 @@ section {
 }
 
 /* Project Cards */
-.project {
-    background-color: white;
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
     padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+.project-card {
+    background: var(--card-bg, #f8f9fa);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Dark Mode */
-.dark-mode {
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.project-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.3em;
+}
+
+.project-info p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Fixing link colors in dark mode */
+body.dark-mode a {
+    color: #1e90ff;
+    /* Light blue */
+}
+
+body.dark-mode a:hover {
+    color: #ffcc00;
+}
+
+/* Ensure headings and other elements are readable */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #ffffff;
+}
+
+/* Dark Mode Styles for Project Cards */
+body.dark-mode .project-card {
+    background-color: #222;
+    /* Darker card background */
+    color: #fff;
+    /* White text for contrast */
+}
+
+body.dark-mode .project-info p {
+    color: #ccc;
+    /* Slightly lighter text for better readability */
+}
+
+/* Dark Mode Button Styling */
+#dark-mode-btn {
+    padding: 10px 15px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+}
+
+/* Align the dark mode button inside the header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
     background-color: #222;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.dark-mode .project {
+/* Fix dark mode button hover effect */
+#dark-mode-btn:hover {
     background-color: #333;
-    color: white;
 }
 
-/* Button */
-button {
-    margin-top: 20px;
-    padding: 10px 15px;
-    cursor: pointer;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
+/* Fix overlapping issue with overview tab */
+.overview {
+    position: relative;
+    z-index: 10;
+    /* Ensure it does not overlap with important text */
 }
