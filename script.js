@@ -53,16 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     projectCard.onclick = () => window.open(project.github, "_blank");
     projectsContainer.appendChild(projectCard);
-});
-
-    // Interactive Project Card Animations - Optional: Can be moved to CSS for clarity
-    document.querySelectorAll(".project-card").forEach(card => {
-        card.addEventListener("mouseenter", () => {
-            card.classList.add("hovered"); // CSS class approach
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.classList.remove("hovered"); // CSS class approach
-        });
-    });
-});
+}); 
