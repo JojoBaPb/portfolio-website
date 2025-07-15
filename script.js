@@ -1,4 +1,4 @@
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("dark-mode-btn");
 
     function updateButtonText() {
@@ -64,4 +64,4 @@
             projectsContainer.appendChild(projectCard);
         });
     }
-});
+}); 
