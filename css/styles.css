@@ -59,15 +59,21 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start; 
+  min-height: 100px;
+  padding: 24px 20px;
   background-color: #0A0F2C;
 }
 
 .intro {
   flex: 1;
-  min-width: 280px;
-  max-width: 600px;
+  min-width: 50px;
+  max-width: 550px;
+  margin-bottom: 12px;
+}
+
+.intro p {
+  margin-bottom: 12px;
 }
 
 .hero-image {
@@ -79,16 +85,16 @@ header {
   max-width: 200px;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0, 206, 209, 0.2);
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 /* === Navigation Buttons Inline in Hero === */
 .main-nav {
-  margin-top: 20px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .main-nav a,
