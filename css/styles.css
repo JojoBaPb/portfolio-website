@@ -153,6 +153,18 @@ header {
     z-index: 1000;
 }
 
+/* Add tagline styling */
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #ccc;
+    margin-top: 8px;
+}
+
+body.dark-mode .tagline {
+    color: #aaa;
+}
+
 /* Fix dark mode button hover effect */
 #dark-mode-btn:hover {
     background-color: #333;
