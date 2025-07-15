@@ -1,13 +1,15 @@
 /* Use Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* === Global Typography & Theme === */
 body {
-    font-family: 'Poppins', sans-serif;
+    background-color: #0A0F2C;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #0A0F2C;
-    color: #FFFFFF;
-    text-align: center;
 }
 
 /* Header */
