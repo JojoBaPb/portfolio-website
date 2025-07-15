@@ -1,189 +1,167 @@
-/* Use Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* === Load Font (Add this to <head> of your HTML) === */
+/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"> */
 
-/* === Global Typography & Theme === */
-body {
-    background-color: #0A0F2C;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+/* === Base Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #0A0F2C;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Headings === */
 h1, h2, h3, h4 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: #f0f0f0;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+p, li {
+  font-weight: 300;
+  color: #ccc;
+}
+
+a {
+  color: #00CED1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #20e0e5;
 }
 
 /* === Header === */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #0A0F2C;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0A0F2C;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #1a1a3c;
 }
 
-/* Navbar */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* === Tagline === */
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #ccc;
+  margin-top: 8px;
 }
 
-nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+/* === Elevator Pitch / About === */
+.elevator-pitch,
+.about {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #ccc;
 }
 
-nav a:hover {
-    color: #007bff;
+.elevator-pitch p,
+.about p {
+  margin-bottom: 16px;
 }
 
-/* Sections */
-section {
-    padding: 50px 20px;
-    max-width: 800px;
-    margin: auto;
+.about ul {
+  margin-top: 10px;
+  padding-left: 20px;
 }
 
-/* Project Cards */
-.projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
+.about li {
+  margin-bottom: 8px;
 }
 
+/* === Buttons === */
+button, .btn {
+  background-color: #00CED1;
+  color: #0A0F2C;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #20e0e5;
+}
+
+/* === Dark Mode Button Hover === */
+#dark-mode-btn:hover {
+  background-color: #00CED1;
+  color: #0A0F2C;
+}
+
+/* === Project Cards (example) === */
 .project-card {
-    background: var(--card-bg, #f8f9fa);
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #11173A;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 206, 209, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
-.project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+.project-card h3 {
+  color: #ffffff;
 }
 
-.project-info {
-    padding: 15px;
-    text-align: center;
+.project-card p {
+  color: #ccc;
 }
 
-.project-info h3 {
-    margin: 10px 0 5px;
-    font-size: 1.3em;
+/* === Overview Tab Fix (if needed) === */
+.overview {
+  position: relative;
+  z-index: 10;
 }
 
-.project-info p {
-    font-size: 0.9em;
-    color: #555;
-}
-
-/* Dark Mode Styles */
+/* === Dark Mode Support === */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Fixing link colors in dark mode */
-body.dark-mode a {
-    color: #1e90ff;
-    /* Light blue */
+body.dark-mode p,
+body.dark-mode li {
+  color: #bbb;
 }
 
-body.dark-mode a:hover {
-    color: #ffcc00;
-}
-
-/* Ensure headings and other elements are readable */
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3 {
-    color: #ffffff;
-}
-
-/* Dark Mode Styles for Project Cards */
-body.dark-mode .project-card {
-    background-color: #222;
-    /* Darker card background */
-    color: #fff;
-    /* White text for contrast */
-}
-
-body.dark-mode .project-info p {
-    color: #ccc;
-    /* Slightly lighter text for better readability */
-}
-
-/* Dark Mode Button Styling */
-#dark-mode-btn {
-    padding: 10px 15px;
-    background-color: #444;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-left: 20px;
-}
-
-/* Align the dark mode button inside the header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #222;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Add tagline styling */
-.tagline {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #ccc;
-    margin-top: 8px;
+body.dark-mode header {
+  background-color: #000;
 }
 
 body.dark-mode .tagline {
-    color: #aaa;
+  color: #aaa;
 }
 
-/* Fix dark mode button hover effect */
-#dark-mode-btn:hover {
-    background-color: #333;
+body.dark-mode .project-card {
+  background-color: #111;
+  box-shadow: 0 0 10px rgba(0, 206, 209, 0.15);
 }
 
-/* Fix overlapping issue with overview tab */
-.overview {
-    position: relative;
-    z-index: 10;
-    /* Ensure it does not overlap with important text */
+body.dark-mode .btn,
+body.dark-mode #dark-mode-btn:hover {
+  background-color: #00CED1;
+  color: #000;
 }
+
