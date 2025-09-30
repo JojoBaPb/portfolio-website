@@ -7,7 +7,7 @@
   <title>Jojo | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
@@ -18,73 +18,78 @@
 </head>
 
 <body>
-<header class="hero">
-  <div class="intro">
-    <h1>Hi, I'm Sipo</h1>
-    <p class="tagline">A relentlessly curious and resourceful aspiring full-stack software engineer based in Zambia.</p>
-    <p class="elevator-pitch">
-      I’m on a mission to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
-    </p>
-    <nav class="main-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button id="dark-mode-btn">Dark Mode</button>
-    </nav>
-  </div>
-  <div class="hero-image">
-    <img src="assets/images/portrait_or_placeholder.jpg" alt="Sipo's Portrait or Illustration" />
-  </div>
-</header>
-
-  <section id="about">
-    <h2>About Me</h2>
-      <p>
-      Hi, I’m Sipo — a relentlessly curious and resourceful aspiring full-stack software engineer based in Zambia.
-    I’m on course to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
+  <!-- Hero / Header -->
+  <header class="hero">
+    <div class="intro">
+      <h1>Hi, I'm Sipo</h1>
+      <p id="tagline"></p> <!-- Typing effect applied here -->
+      <p class="elevator-pitch">
+        I’m on a mission to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
       </p>
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="dark-mode-btn">Dark Mode</button>
+      </nav>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/portrait_or_placeholder.jpg" alt="Sipo's Portrait or Illustration" />
+    </div>
+  </header>
 
-<h3>What Sets Me Apart?</h3>
-  <p>
-    While most developers rely on high-end machines, I’ve built full-stack systems using just my mobile device and Termux, 
-    battling inconsistent power and internet access to bring my ideas to life. 
-    It’s more than just coding — it’s proof that with enough determination and creativity, any environment can become a launchpad.
-  </p>
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Sipo — a relentlessly curious and resourceful aspiring full-stack software engineer based in Zambia.
+      I’m on course to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
+    </p>
 
-  <h3>My Core Beliefs</h3>
-  <ul>
-    <li><strong>Efficiency over excess</strong> — I write code that’s clean, scalable, and impact-driven.</li>
-    <li><strong>Build to learn</strong> — Every project I take on helps me grow, whether it’s an AI marketing bot, a health-tech app, or a neural network.</li>
-  </ul>
+    <h3>What Sets Me Apart?</h3>
+    <p>
+      While most developers rely on high-end machines, I’ve built full-stack systems using just my mobile device and Termux,
+      battling inconsistent power and internet access to bring my ideas to life.
+      It’s more than just coding — it’s proof that with enough determination and creativity, any environment can become a launchpad.
+    </p>
 
-  <h3>Current Focus Areas</h3>
-  <ul>
-    <li>Full-Stack Development (FastAPI, PostgreSQL, JavaScript/React)</li>
-    <li>AI & Automation (OpenAI, Hugging Face, custom ML workflows)</li>
-    <li>Cybersecurity (studying from scratch with a roadmap toward certification)</li>
-  </ul>
+    <h3>My Core Beliefs</h3>
+    <ul>
+      <li><strong>Efficiency over excess</strong> — I write code that’s clean, scalable, and impact-driven.</li>
+      <li><strong>Build to learn</strong> — Every project I take on helps me grow, whether it’s an AI marketing bot, a health-tech app, or a neural network.</li>
+    </ul>
 
-  <h3>Fun Fact</h3>
-  <p>
-    Yes — I really do code in the dark (literally). With or without power.
-  </p>
-</section>
+    <h3>Current Focus Areas</h3>
+    <ul>
+      <li>Full-Stack Development (FastAPI, PostgreSQL, JavaScript/React)</li>
+      <li>AI & Automation (OpenAI, Hugging Face, custom ML workflows)</li>
+      <li>Cybersecurity (studying from scratch with a roadmap toward certification)</li>
+    </ul>
 
-  <section id="projects">
+    <h3>Fun Fact</h3>
+    <p>
+      Yes — I really do code in the dark (literally). With or without power.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container">
     <h2>Projects</h2>
     <div class="projects-container" id="projects-container">
-      <!-- Dynamic project cards will be inserted here -->
+      <!-- Project cards are dynamically inserted here by script.js -->
     </div>
   </section>
 
-  <section id="contact">
+  <!-- Contact Section -->
+  <section id="contact" class="container">
     <h2>Contact</h2>
-    <p>Email: sipo.jmudenda@gmail.com</p>
+    <p>Email: <a href="mailto:sipo.jmudenda@gmail.com">sipo.jmudenda@gmail.com</a></p>
     <p>
       GitHub: <a href="https://github.com/JojoBaPb" target="_blank">github.com/JojoBaPb</a>
     </p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Jojo. Built with love and Vim.</p>
   </footer>
@@ -93,3 +98,4 @@
 </body>
 
 </html>
+

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Restore dark mode preference
     if (localStorage.getItem("dark-mode") === "enabled") {
         document.body.classList.add("dark-mode");
     }
@@ -26,6 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Typing effect for tagline
+    const tagline = document.getElementById("tagline");
+    if (tagline) {
+        const text = tagline.textContent;
+        tagline.textContent = "";
+        let i = 0;
+        const typing = setInterval(() => {
+            if (i < text.length) {
+                tagline.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typing);
+            }
+        }, 50);
+    }
+
+    // Project cards
     const projects = [
         {
             name: "Matchmaking Algorithm",
@@ -50,9 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsContainer = document.querySelector(".projects-container");
 
     if (projectsContainer) {
-        projects.forEach(project => {
+        projects.forEach((project, index) => {
             const projectCard = document.createElement("div");
             projectCard.classList.add("project-card");
+            projectCard.style.animationDelay = `${index * 0.2}s`; // Stagger animation
+
             projectCard.innerHTML = `
                 <img src="${project.image}" alt="${project.name}">
                 <div class="project-info">
@@ -64,4 +84,5 @@ document.addEventListener("DOMContentLoaded", () => {
             projectsContainer.appendChild(projectCard);
         });
     }
-}); 
+});
+
