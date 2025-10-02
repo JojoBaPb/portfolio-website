@@ -1,136 +1,219 @@
-/* General Reset */
+/* 1. General Reset & Variable Definitions */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
+:root {
+  /* Color Palette */
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --text-secondary: #555;
+  --card-bg: #fff;
+  --primary-accent: #0077ff;
+  --primary-accent-hover: #005bcc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Dark Mode */
+/* 2. Dark Mode Variable Overrides */
 body.dark-mode {
-    background: #121212;
-    color: #f4f4f9;
+  --bg-color: #121212;
+  --text-color: #f4f4f9;
+  --text-secondary: #bbb;
+  --card-bg: #1e1e1e;
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Container */
+/* 3. General Body & Layout Styles */
+body {
+  font-family: var(--font-main);
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Header */
-header {
-    text-align: center;
-    margin-bottom: 40px;
+/* 4. Hero Section & Navigation */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 80vh;
+  padding: 20px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.hero .intro {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.hero .hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.hero .hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+  margin-bottom: 10px;
 }
 
 #tagline {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #555;
-    min-height: 30px; /* prevents jump during typing */
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-height: 30px; /* prevents jump during typing */
+  margin-bottom: 20px;
 }
 
-body.dark-mode #tagline {
-    color: #bbb;
+.elevator-pitch {
+  margin-bottom: 30px;
 }
 
-/* Theme Toggle Button */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: var(--primary-accent);
+}
+
 #dark-mode-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    background: #0077ff;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, outline-offset 0.2s;
 }
 
 #dark-mode-btn:hover {
-    background: #005bcc;
+  background: var(--primary-accent-hover);
 }
 
-/* Projects Grid */
+/* Accessibility: Focus state for button */
+#dark-mode-btn:focus-visible {
+  outline: 3px solid var(--primary-accent);
+  outline-offset: 3px;
+}
+
+/* 5. Section & Content Styles */
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* 6. Projects Grid & Cards */
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
-/* Project Cards */
+/* Makes the new anchor tag cards style correctly */
+a.project-card {
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s forwards;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s forwards;
 }
 
-body.dark-mode .project-card {
-    background: #1e1e1e;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* Accessibility: Focus state for project cards */
+a.project-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  outline: 3px solid var(--primary-accent);
+  outline-offset: 3px;
 }
 
 .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .project-info {
-    padding: 15px;
+  padding: 20px;
 }
 
 .project-info h3 {
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-    color: #222;
-}
-
-body.dark-mode .project-info h3 {
-    color: #f9f9f9;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
 }
 
 .project-info p {
-    font-size: 0.95rem;
-    color: #555;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
-body.dark-mode .project-info p {
-    color: #bbb;
+/* 7. Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: var(--text-secondary);
 }
 
-/* Hover Effects */
-.project-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-}
-
-/* Animations */
+/* 8. Animation Keyframes */
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
