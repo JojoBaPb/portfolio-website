@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tagline = document.getElementById("tagline");
 
   if (tagline) {
-    const textToType = "A developer building things for the web.";
+    const textToType = "A developer building things for everyone.";
     let i = 0;
     tagline.textContent = "";
     const typing = setInterval(() => {
@@ -41,23 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "Matchmaking Algorithm",
       description: "A Python-based system designed to explore matchmaking in games, including mechanics for both fair and intentionally unbalanced ('rigged') scenarios. A fun exploration of algorithm design.",
-      github: "https://github.com/JojoBaPb/matchmaking-algo",
+      github: "https://github.com/JojoBaPb/rigged-matchmaking-simulator",
       liveDemo: null,
-      technologies: ["Python", "Algorithm Design"]
+      technologies: ["Python", "Algorithm Design"],
+      image: "assets/images/matchmaking_algo_thumbnail.jpg"
     },
     {
       name: "Portfolio Website",
       description: "The very site you are on now! A fully responsive personal portfolio built from scratch to showcase my skills and projects. Includes a dark mode feature and is dynamically rendered.",
       github: "https://github.com/JojoBaPb/portfolio-website",
       liveDemo: "#",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid"]
+      technologies: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid"],
+      image: "assets/images/p_folio_website_thumbnail.jpg"
     },
     {
       name: "AI Marketing Bot",
       description: "An intelligent bot designed to automate marketing tasks. It can handle lead generation, manage email campaigns, and schedule social media posts using various AI APIs.",
       github: "https://github.com/JojoBaPb/ai-marketing-bot",
       liveDemo: null,
-      technologies: ["Python", "FastAPI", "OpenAI API", "Hugging Face"]
+      technologies: ["Python", "FastAPI", "OpenAI API", "Hugging Face"],
+      image: "assets/images/ai_marketing_bot_thumbnail.jpg"    
     }
   ];
 
