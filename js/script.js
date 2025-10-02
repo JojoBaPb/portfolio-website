@@ -133,4 +133,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+
+  /* --- Scroll Animations --- */
+const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // Stop observing once it's visible
+    }
+  });
+}, {
+  threshold: 0.1 // Trigger when 10% of the section is visible
+});
+
+sectionsToAnimate.forEach(section => {
+  observer.observe(section);
+});
 });

@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Color Palette */
   --bg-color: #f4f4f9;
@@ -430,4 +434,16 @@ footer {
   width: 100%;
   border: none;
   font-size: 1.1rem;
+}
+
+/* 14. Scroll Animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
