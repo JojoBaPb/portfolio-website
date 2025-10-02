@@ -155,34 +155,17 @@ section h3 {
   gap: 30px;
 }
 
-/* Makes the new anchor tag cards style correctly */
-a.project-card {
-  text-decoration: none;
-  color: inherit;
-}
-
 .project-card {
   background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px var(--shadow-color);
   transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s forwards;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px var(--shadow-color);
-}
-
-/* Accessibility: Focus state for project cards */
-a.project-card:focus-visible {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px var(--shadow-color);
-  outline: 3px solid var(--primary-accent);
-  outline-offset: 3px;
 }
 
 .project-card img {
@@ -214,7 +197,7 @@ footer {
     color: var(--text-secondary);
 }
 
-/* 8. Animation Keyframes */
+/* 8. Animation Keyframes (No longer used by project-card) */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -268,7 +251,7 @@ footer {
 
 /* 10. Project Modal */
 .modal-overlay {
-  position: fixed; /* Sits on top of the page content */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -277,13 +260,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Initially hidden */
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
 
-/* This class will be added by JS to show the modal */
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
@@ -387,6 +369,72 @@ footer {
   outline-offset: 2px;
 }
 
+/* 12. Resume/Experience Section */
+.resume-timeline {
+  position: relative;
+  max-width: 750px;
+  margin: 30px auto;
+  padding-left: 20px;
+  border-left: 3px solid var(--primary-accent);
+}
+
+.resume-item {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.resume-item::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 3px solid var(--primary-accent);
+}
+
+.resume-item h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.resume-item h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 5px 0;
+}
+
+.resume-dates {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--primary-accent);
+  margin-bottom: 10px;
+}
+
+.resume-download {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--primary-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary-accent-hover);
+  transform: translateY(-3px);
+}
+
 /* 13. Contact Form */
 .contact-intro {
   text-align: center;
@@ -415,7 +463,7 @@ footer {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ccc; /* A neutral border for both themes */
+  border: 1px solid #ccc;
   background: var(--card-bg);
   color: var(--text-color);
   font-size: 1rem;
