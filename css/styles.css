@@ -382,3 +382,52 @@ footer {
   outline: 3px solid var(--primary-accent);
   outline-offset: 2px;
 }
+
+/* 13. Contact Form */
+.contact-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  color: var(--text-secondary);
+}
+
+#contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc; /* A neutral border for both themes */
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: var(--font-main);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
+}
+
+#contact-form button[type="submit"] {
+  width: 100%;
+  border: none;
+  font-size: 1.1rem;
+}
