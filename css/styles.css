@@ -10,26 +10,29 @@ html {
 }
 
 :root {
-  /* Color Palette */
-  --bg-color: #f4f4f9;
-  --text-color: #333;
-  --text-secondary: #555;
-  --card-bg: #fff;
-  --primary-accent: #0077ff;
-  --primary-accent-hover: #005bcc;
+  /* 2. Colour Palette - Light Mode (Cosmic Day) */
+  --bg-color: #f0f4f8;
+  --text-color: #0B0C10;
+  --text-secondary: #4a4e57;
+  --card-bg: #ffffff;
+  --primary-accent: #45A29E;
+  --primary-accent-hover: #367e7a;
   --shadow-color: rgba(0, 0, 0, 0.1);
 
   /* Typography */
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Share Tech Mono', monospace;  
 }
 
-/* 2. Dark Mode Variable Overrides */
+/* Colour Palette - Dark Mode (Cosmic Night) */
 body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #f4f4f9;
-  --text-secondary: #bbb;
-  --card-bg: #1e1e1e;
-  --shadow-color: rgba(0, 0, 0, 0.2);
+  --bg-color: #0B0C10; /* Deep Space Black */
+  --text-color: #C5C6C7; /* Starlight Silver */
+  --text-secondary: #6c757d;
+  --card-bg: #1F2833; /* Asteroid Gray */
+  --primary-accent: #66FCF1; /* Hyperdrive Cyan */
+  --primary-accent-hover: #45A29E;
+  --shadow-color: rgba(102, 252, 241, 0.1);
 }
 
 /* 3. General Body & Layout Styles */
@@ -39,6 +42,11 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   transition: background 0.3s, color 0.3s;
+}
+
+/* Apply the heading font */
+h1, h2, h3 {
+  font-family: var(--font-heading);
 }
 
 .container {
@@ -137,15 +145,15 @@ body {
 
 /* 5. Section & Content Styles */
 section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 section h3 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* 6. Projects Grid & Cards */
@@ -191,18 +199,18 @@ section h3 {
 
 /* 7. Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    color: var(--text-secondary);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: var(--text-secondary);
 }
 
 /* 8. Animation Keyframes (No longer used by project-card) */
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 
 /* 9. Skills Section */
@@ -494,4 +502,12 @@ footer {
 .fade-in-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 15. Glow Effect for Links & Buttons */
+.btn:hover,
+.details-btn:hover,
+.main-nav a:hover {
+  box-shadow: 0 0 15px var(--primary-accent-hover);
+  color: var(--primary-accent);
 }
