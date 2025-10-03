@@ -36,6 +36,51 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 50);
   }
 
+  /* --- NEW: tsParticles Animation --- */
+  if (document.getElementById("tsparticles")) {
+    tsParticles.load("tsparticles", {
+      preset: "nasa",
+      background: {
+        color: {
+          value: "transparent"
+        }
+      },
+      particles: {
+        color: {
+          value: document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000"
+        },
+        links: {
+          color: document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000",
+          enable: true,
+          opacity: 0.3
+        },
+        opacity: {
+          value: 0.5,
+        },
+        move: {
+            enable: true,
+            speed: 1
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "grab",
+          },
+        },
+        modes: {
+            grab: {
+                distance: 150,
+                links: {
+                    opacity: 0.7
+                }
+            }
+        }
+      },
+    });
+  }
+
   /* --- Dynamic Project Cards & Modal --- */
   const projects = [
     {
@@ -67,9 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectsContainer = document.getElementById("projects-container");
   const modal = document.getElementById("project-modal");
 
-  if (modal) { // Check if modal exists to prevent errors
+  if (modal) {
     const closeModalBtn = modal.querySelector(".modal-close-btn");
-
     function openModal(project) {
       modal.querySelector("#modal-title").textContent = project.name;
       modal.querySelector("#modal-description").textContent = project.description;
@@ -90,36 +134,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       modal.classList.add("active");
     }
-
     function closeModal() {
       modal.classList.remove("active");
     }
-
     if (projectsContainer) {
       projectsContainer.innerHTML = "";
       projects.forEach((project, index) => {
         const projectCard = document.createElement("div");
         projectCard.classList.add("project-card");
         projectCard.style.animationDelay = `${index * 0.15}s`;
-
-        // **FIX:** Moved the button outside the <p> tag
         projectCard.innerHTML = `
-<img src="${project.image}" alt="Screenshot of the ${project.name} project">
-<div class="project-info">
-  <h3>${project.name}</h3>
-  <p>${project.description.substring(0, 80)}...</p>
-  <button class="details-btn">View Details</button>
-</div>
-`;
-
+          <img src="${project.image}" alt="Screenshot of the ${project.name} project">
+          <div class="project-info">
+            <h3>${project.name}</h3>
+            <p>${project.description.substring(0, 80)}...</p>
+            <button class="details-btn">View Details</button>
+          </div>
+        `;
         projectCard.querySelector(".details-btn").addEventListener("click", () => {
           openModal(project);
         });
-
         projectsContainer.appendChild(projectCard);
       });
     }
-
     closeModalBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
@@ -135,20 +172,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* --- Scroll Animations --- */
-const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Stop observing once it's visible
-    }
+  const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
   });
-}, {
-  threshold: 0.1 // Trigger when 10% of the section is visible
-});
-
-sectionsToAnimate.forEach(section => {
-  observer.observe(section);
-});
+  sectionsToAnimate.forEach(section => {
+    observer.observe(section);
+  });
 });
