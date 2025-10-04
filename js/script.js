@@ -7,21 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const isDarkMode = document.body.classList.contains("dark-mode");
       themeToggle.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
     };
+
     if (localStorage.getItem("dark-mode") === "enabled") {
       document.body.classList.add("dark-mode");
     }
     updateButtonText();
+
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
       const isDarkMode = document.body.classList.contains("dark-mode");
       localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
       updateButtonText();
+      
+      // Refresh the particle animation with the new theme colors
+      loadParticlesConfig(); 
     });
   }
 
   /* --- Tagline Typing Effect --- */
   const tagline = document.getElementById("tagline");
-
   if (tagline) {
     const textToType = "A developer building things for everyone.";
     let i = 0;
@@ -36,50 +40,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 50);
   }
 
-  /* --- NEW: tsParticles Animation --- */
-  if (document.getElementById("tsparticles")) {
-    tsParticles.load("tsparticles", {
-      preset: "nasa",
-      background: {
-        color: {
-          value: "transparent"
-        }
-      },
-      particles: {
-        color: {
-          value: document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000"
+  /* --- tsParticles Animation --- */
+  function loadParticlesConfig() {
+    const particleColor = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
+    if (document.getElementById("tsparticles")) {
+      tsParticles.load("tsparticles", {
+        preset: "nasa",
+        background: { color: { value: "transparent" } },
+        particles: {
+          color: { value: particleColor },
+          links: { color: particleColor, enable: true, opacity: 0.3 },
+          opacity: { value: 0.5 },
+          move: { enable: true, speed: 1 }
         },
-        links: {
-          color: document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000",
-          enable: true,
-          opacity: 0.3
+        interactivity: {
+          events: { onHover: { enable: true, mode: "grab" } },
+          modes: { grab: { distance: 150, links: { opacity: 0.7 } } }
         },
-        opacity: {
-          value: 0.5,
-        },
-        move: {
-            enable: true,
-            speed: 1
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "grab",
-          },
-        },
-        modes: {
-            grab: {
-                distance: 150,
-                links: {
-                    opacity: 0.7
-                }
-            }
-        }
-      },
-    });
+      });
+    }
   }
+  
+  loadParticlesConfig(); // Load particles on initial page load
 
   /* --- Dynamic Project Cards & Modal --- */
   const projects = [
