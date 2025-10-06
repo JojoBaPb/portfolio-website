@@ -40,7 +40,7 @@ To run this project locally:
 1.  **Clone the repository:**
     ```bash
     
-    git clone [https://github.com/JojoBaPb/portfolio-website.git] ```
+    git clone https://github.com/JojoBaPb/portfolio-website.git ```
     
 2.  **Navigate to the project directory:**
     ```bash
