@@ -39,30 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 50);
   }
-
-  /* --- tsParticles Animation --- */
-  function loadParticlesConfig() {
-    const particleColor = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
-    if (document.getElementById("tsparticles")) {
-      tsParticles.load("tsparticles", {
-        preset: "nasa",
-        background: { color: { value: "transparent" } },
-        particles: {
-          color: { value: particleColor },
-          links: { color: particleColor, enable: true, opacity: 0.3 },
-          opacity: { value: 0.5 },
-          move: { enable: true, speed: 1 }
-        },
-        interactivity: {
-          events: { onHover: { enable: true, mode: "grab" } },
-          modes: { grab: { distance: 150, links: { opacity: 0.7 } } }
-        },
-      });
-    }
-  }
-  
-  loadParticlesConfig(); // Load particles on initial page load
-
+ 
   /* --- Dynamic Project Cards & Modal --- */
   const projects = [
     {

@@ -58,34 +58,31 @@ h1, h2, h3 {
 
 /* 4. Hero Section & Navigation */
 .hero {
-  /* Positioning for the particle background */
-  position: relative;
-  overflow: hidden;
-
-  /* Flexbox for centering the intro content */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  
-  /* Sizing */
+  justify-content: space-between;
+  gap: 40px;
   min-height: 80vh;
   padding: 20px;
 }
 
-#tsparticles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Sits behind the content */
+.hero .intro {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
 }
 
-.hero .intro {
-  position: relative;
-  z-index: 2; /* Sits on top of the particles */
-  text-align: center; /* Center the text */
-  margin: 0 auto; /* Center the container */
+.hero .hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.hero .hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .hero h1 {
