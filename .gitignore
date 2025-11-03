@@ -10,7 +10,7 @@ __pycache__/
 *.pyd
 venv/
 .env
-.venv
+.venv/
 
 # IDE / Editor files
 .vscode/
