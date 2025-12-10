@@ -1,198 +1,204 @@
 <!DOCTYPE html0
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The portfolio of Sipo, a full-stack software engineer from Zambia creating solutions with code.">
-    <title>Jojo | Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="manifest" href="assets/site.webmanifest" />
-    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="theme-color" content="#ffffff" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sipo Mudenda: Software Engineer specializing in Backend Development (FastAPI), C++ Systems, and Automation.">
 
-  <body>
-    <header class="hero">
+  <meta property="og:title" content="Sipo (Jojo) - Software Engineer Portfolio" />
+  <meta property="og:description" content="Backend Engineer (FastAPI & PostgreSQL) & C++ Systems Developer. View my projects: URL Shortener, Matchmaking Simulator, and more." />
+  <meta property="og:image" content="https://jojoin.space/assets/linkedin-preview.jpg" />
+  <meta property="og:url" content="https://jojoin.space/" />
+  <meta property="og:type" content="website" />
+  <title>Jojo | Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#2d89ef" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
 
-      <div class="intro">
-        <h1>Hi, I'm Sipo</h1>
-        <p id="tagline"></p> 
-        <p class="elevator-pitch">
-          I’m on a mission to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
-        </p>
-        <nav class="main-nav">
+<body>
+  <header class="hero">
+
+    <div class="intro">
+      <h1>Hi, I'm Sipo</h1>
+      <p id="tagline"></p> 
+      <p class="elevator-pitch">
+        I’m on a mission to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
+      </p>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="dark-mode-btn">Dark Mode</button></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/hero-banner.jpg" alt="A simple connection banner" />
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container fade-in-section">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Sipo — a relentlessly curious and resourceful aspiring full-stack software engineer based in Zambia.
+        I’m on course to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
+      </p>
+
+      <h3>What Sets Me Apart?</h3>
+      <p>
+        While most developers rely on high-end machines, I’ve built full-stack systems using just my mobile device and Termux,
+        battling inconsistent power and internet access to bring my ideas to life.
+        It’s more than just coding — it’s proof that with enough determination and creativity, any environment can become a launchpad.
+      </p>
+
+      <h3>My Core Beliefs</h3>
+      <ul>
+        <li><strong>Efficiency over excess</strong> — I write code that’s clean, scalable, and impact-driven.</li>
+        <li><strong>Build to learn</strong> — Every project I take on helps me grow, whether it’s an AI marketing bot, a health-tech app, or a neural network.</li>
+      </ul>
+
+      <h3>Current Focus Areas</h3>
+      <ul>
+        <li>Full-Stack Development (FastAPI, PostgreSQL, JavaScript/React)</li>
+        <li>AI & Automation (OpenAI, Hugging Face, custom ML workflows)</li>
+        <li>Cybersecurity (studying from scratch with a roadmap toward certification)</li>
+      </ul>
+
+      <h3>Fun Fact</h3>
+      <p>
+        Yes — I really do code in the dark (literally). With or without power.
+      </p>
+    </section>
+
+    <section id="skills" class="container fade-in-section">
+      <h2>My Skills</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Languages</h3>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button id="dark-mode-btn">Dark Mode</button></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="hero-image">
-        <img src="assets/images/hero-banner.jpg" alt="A simple connection banner" />
-      </div>
-    </header>
-
-    <main>
-      <section id="about" class="container fade-in-section">
-        <h2>About Me</h2>
-        <p>
-          Hi, I’m Sipo — a relentlessly curious and resourceful aspiring full-stack software engineer based in Zambia.
-          I’m on course to leverage code to solve real-world problems, uplift underserved communities, and have fun doing it.
-        </p>
-
-        <h3>What Sets Me Apart?</h3>
-        <p>
-          While most developers rely on high-end machines, I’ve built full-stack systems using just my mobile device and Termux,
-          battling inconsistent power and internet access to bring my ideas to life.
-          It’s more than just coding — it’s proof that with enough determination and creativity, any environment can become a launchpad.
-        </p>
-
-        <h3>My Core Beliefs</h3>
-        <ul>
-          <li><strong>Efficiency over excess</strong> — I write code that’s clean, scalable, and impact-driven.</li>
-          <li><strong>Build to learn</strong> — Every project I take on helps me grow, whether it’s an AI marketing bot, a health-tech app, or a neural network.</li>
-        </ul>
-
-        <h3>Current Focus Areas</h3>
-        <ul>
-          <li>Full-Stack Development (FastAPI, PostgreSQL, JavaScript/React)</li>
-          <li>AI & Automation (OpenAI, Hugging Face, custom ML workflows)</li>
-          <li>Cybersecurity (studying from scratch with a roadmap toward certification)</li>
-        </ul>
-
-        <h3>Fun Fact</h3>
-        <p>
-          Yes — I really do code in the dark (literally). With or without power.
-        </p>
-      </section>
-
-      <section id="skills" class="container fade-in-section">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-          <div class="skill-category">
-            <h3>Languages</h3>
-            <ul>
-              <li>C</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>SQL</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>Frameworks & Libraries</h3>
-            <ul>
-              <li>FastAPI</li>
-              <li>React</li>
-              <li>Node.js</li>
-              <li>Hugging Face</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>Databases & Tools</h3>
-            <ul>
-              <li>PostgreSQL</li>
-              <li>Git & GitHub</li>
-              <li>Docker</li>
-              <li>Vim</li>
-              <li>Termux</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="resume" class="container fade-in-section">
-        <h2>Experience & Education</h2>
-        <div class="resume-timeline">
-          <div class="resume-item">
-            <h3>Backend Engineering Programme</h3>
-            <h4>ALX ProDev | Lusaka, Zambia</h4>
-            <p class="resume-dates">2024 – 2025 (Final Review Pending)</p>
-            <p>Completed an intensive, project-based curriculum focused on backend development. Key areas of study and application include:</p>
-            <ul>
-              <li>API Development with FastAPI</li>
-              <li>Database Management with PostgreSQL & SQLAlchemy</li>
-              <li>Authentication & Authorization Systems</li>
-              <li>Containerization with Docker</li>
-              <li>Agile Methodologies & Version Control (Git)</li>
-            </ul>
-          </div>
-          
-          <div class="resume-item">
-            <h3>Self-Directed Learning & Projects</h3>
-            <h4>Independent Developer</h4>
-            <p class="resume-dates">2023 – Present</p>
-            <p>Building full-stack applications and custom AI tools from scratch. This includes the AI Marketing Bot and Matchmaking Algorithm projects listed on this site, developed in a self-hosted, mobile-first environment.</p>
-          </div>
-        </div>
-        <div class="resume-download">
-          <a href="assets/documents/Sipo_Mudenda_Resume.pdf" class="btn" download>Download Full Resume (PDF)</a>
-        </div>
-      </section>
-
-      <section id="projects" class="container fade-in-section">
-        <h2>Projects</h2>
-        <div class="projects-container" id="projects-container">
-          <p>Loading projects...</p>
-        </div>
-      </section>
-
-      <section id="contact" class="container fade-in-section">
-        <h2>Get In Touch</h2>
-        <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out.</p>
-        <form id="contact-form" action="https://formspree.io/f/xrbykawq" method="POST">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <p>© <span id="current-year">2025</span> Jojo. Built with love and Vim.</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-
-    <div id="project-modal" class="modal-overlay">
-      <div class="modal-content">
-        <button class="modal-close-btn">&times;</button>
-        <h2 id="modal-title">Project Title</h2>
-        <div id="modal-body">
-          <p id="modal-description">Project description goes here.</p>
-          <h3>Technologies Used:</h3>
-          <ul id="modal-tech-list">
+            <li>C</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>SQL</li>
           </ul>
         </div>
-        <div class="modal-links">
-          <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer">View Live Demo</a>
-          <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <div class="skill-category">
+          <h3>Frameworks & Libraries</h3>
+          <ul>
+            <li>FastAPI</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Hugging Face</li>
+          </ul>
         </div>
+        <div class="skill-category">
+          <h3>Databases & Tools</h3>
+          <ul>
+            <li>PostgreSQL</li>
+            <li>Git & GitHub</li>
+            <li>Docker</li>
+            <li>Vim</li>
+            <li>Termux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="container fade-in-section">
+      <h2>Experience & Education</h2>
+      <div class="resume-timeline">
+        <div class="resume-item">
+          <h3>Backend Engineering Programme</h3>
+          <h4>ALX ProDev | Lusaka, Zambia</h4>
+          <p class="resume-dates">2024 – 2025 (Final Review Pending)</p>
+          <p>Completed an intensive, project-based curriculum focused on backend development. Key areas of study and application include:</p>
+          <ul>
+            <li>API Development with FastAPI</li>
+            <li>Database Management with PostgreSQL & SQLAlchemy</li>
+            <li>Authentication & Authorization Systems</li>
+            <li>Containerization with Docker</li>
+            <li>Agile Methodologies & Version Control (Git)</li>
+          </ul>
+        </div>
+        
+        <div class="resume-item">
+          <h3>Self-Directed Learning & Projects</h3>
+          <h4>Independent Developer</h4>
+          <p class="resume-dates">2023 – Present</p>
+          <p>Building full-stack applications and custom AI tools from scratch. This includes the AI Marketing Bot and Matchmaking Algorithm projects listed on this site, developed in a self-hosted, mobile-first environment.</p>
+        </div>
+      </div>
+      <div class="resume-download">
+        <a href="assets/documents/Sipo_Mudenda_Resume.pdf" class="btn" download>Download Full Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="projects" class="container fade-in-section">
+      <h2>Projects</h2>
+      <div class="projects-container" id="projects-container">
+        <p>Loading projects...</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container fade-in-section">
+      <h2>Get In Touch</h2>
+      <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out.</p>
+      <form id="contact-form" action="https://formspree.io/f/xrbykawq" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year">2025</span> Jojo. Built with love and Vim.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn">&times;</button>
+      <h2 id="modal-title">Project Title</h2>
+      <div id="modal-body">
+        <p id="modal-description">Project description goes here.</p>
+        <h3>Technologies Used:</h3>
+        <ul id="modal-tech-list">
+        </ul>
+      </div>
+      <div class="modal-links">
+        <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer">View Live Demo</a>
+        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 
 </html>
