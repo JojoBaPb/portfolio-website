@@ -18,6 +18,7 @@ html {
   --primary-accent: #45A29E;
   --primary-accent-hover: #367e7a;
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --btn-text: #ffffff;
 
   /* Typography */
   --font-main: 'Inter', sans-serif;
@@ -28,11 +29,12 @@ html {
 /* Colour Palette - Dark Mode (Cosmic Night) */
 body.dark-mode {
   --bg-color: #0B0C10; /* Deep Space Black */
-  --text-color: #C5C6C7; /* Starlight Silver */
-  --text-secondary: #6c757d;
+  --text-color: #E2E8F0; /* Starlight Silver */
+  --text-secondary: #94A3B8;
   --card-bg: #1F2833; /* Asteroid Gray */
   --primary-accent: #66FCF1; /* Hyperdrive Cyan */
   --primary-accent-hover: #45A29E;
+  --btn-text: #0B0C10;
   --shadow-color: rgba(102, 252, 241, 0.1);
   --overlay-bg: rgba(11, 12, 16, 0.6); /* Dark overlay */
 }
@@ -44,12 +46,13 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   transition: background 0.3s, color 0.3s;
-  --shadow-color: rgba(102, 252, 241, 0.1); /* testing for removal */ 
  }
 
 /* Apply the heading font */
 h1, h2, h3 {
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .container {
@@ -151,7 +154,7 @@ h1, h2, h3 {
   border: none;
   border-radius: 6px;
   background: var(--primary-accent);
-  color: #fff;
+  color: var(--btn-text);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -288,17 +291,19 @@ to {
 
 .skill-category li {
   background: var(--card-bg);
-  color: var(--text-secondary);
-  padding: 8px 16px;
-  border-radius: 6px;
+  color: var(--text-color);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(69, 162, 158, 0.3);
   font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .skill-category li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  border-color: var(--primary-accent);
 }
 
 /* 10. Project Modal */
@@ -370,8 +375,11 @@ to {
 
 #modal-tech-list li {
   background: var(--bg-color);
+  font-family: var(--font-heading);
+  color: var(--text-color);
+  border: 1px solid var(--primary-accent);
   padding: 5px 12px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 0.9rem;
 }
 
@@ -386,7 +394,7 @@ to {
   padding: 10px 20px;
   text-decoration: none;
   background: var(--primary-accent);
-  color: #fff;
+  color: var(--btn-text);
   border-radius: 6px;
   transition: background 0.3s;
 }
@@ -403,7 +411,7 @@ to {
   border: none;
   border-radius: 6px;
   background: var(--primary-accent);
-  color: #fff;
+  color: var(--btn-text);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -460,8 +468,8 @@ to {
 }
 
 .resume-dates {
+  font-family: var(--font-heading);
   font-size: 0.9rem;
-  font-style: italic;
   color: var(--primary-accent);
   margin-bottom: 10px;
 }
@@ -475,7 +483,7 @@ to {
   display: inline-block;
   padding: 12px 25px;
   background: var(--primary-accent);
-  color: #fff;
+  color: var(--btn-text);
   text-decoration: none;
   font-weight: 600;
   border-radius: 8px;
@@ -515,7 +523,7 @@ to {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--text-secondary);
   background: var(--card-bg);
   color: var(--text-color);
   font-size: 1rem;
@@ -527,7 +535,7 @@ to {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-accent);
-  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
+  box-shadow: 0 0 0 2px var(--primary-accent);
 }
 
 #contact-form button[type="submit"] {
@@ -546,12 +554,4 @@ to {
 .fade-in-section.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* 15. Glow Effect for Links & Buttons */
-.btn:hover,
-.details-btn:hover,
-.main-nav a:hover {
-  box-shadow: 0 0 15px var(--primary-accent-hover);
-  color: var(--primary-accent);
 }

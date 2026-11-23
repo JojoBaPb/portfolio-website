@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const isDarkMode = document.body.classList.contains("dark-mode");
       localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
       updateButtonText();
-      
-      // Refresh the particle animation with the new theme colors
-      loadParticlesConfig(); 
     });
   }
 
@@ -54,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Portfolio Website",
       description: "The very site you are on now! A fully responsive personal portfolio built from scratch to showcase my skills and projects. Includes a dark mode feature and is dynamically rendered.",
       github: "https://github.com/JojoBaPb/portfolio-website",
-      liveDemo: "#",
+      liveDemo: null,
       technologies: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid"],
       image: "assets/images/p_folio_website_thumbnail.jpg"
     },
