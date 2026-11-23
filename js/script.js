@@ -3,38 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("dark-mode-btn");
 
   if (themeToggle) {
-    const updateButtonText = () => {
-      const isDarkMode = document.body.classList.contains("dark-mode");
+    const updateButtonState = () => {
+      const isDarkMode = document.documentElement.classList.contains("dark-mode") || document.body.classList.contains("dark-mode");
       themeToggle.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+      themeToggle.setAttribute("aria-label", isDarkMode ? "Switch to light mode" : "Switch to dark mode");
     };
 
-    if (localStorage.getItem("dark-mode") === "enabled") {
+    if (localStorage.getItem("dark-mode") === "enabled" || (!("dark-mode" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark-mode");
       document.body.classList.add("dark-mode");
     }
-    updateButtonText();
+    updateButtonState();
 
     themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDarkMode = document.body.classList.contains("dark-mode");
+      const isDarkMode = document.documentElement.classList.toggle("dark-mode");
+      document.body.classList.toggle("dark-mode", isDarkMode);
       localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
-      updateButtonText();
+      updateButtonState();
     });
   }
 
-  /* --- Tagline Typing Effect --- */
+  /* --- Tagline Typing Effect (respecting prefers-reduced-motion) --- */
   const tagline = document.getElementById("tagline");
   if (tagline) {
     const textToType = "Backend & Systems Engineer \u2014 Python APIs, data pipelines, & C/C++20 systems.";
-    let i = 0;
-    tagline.textContent = "";
-    const typing = setInterval(() => {
-      if (i < textToType.length) {
-        tagline.textContent += textToType.charAt(i);
-        i++;
-      } else {
-        clearInterval(typing);
-      }
-    }, 50);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      tagline.textContent = textToType;
+    } else {
+      let i = 0;
+      tagline.textContent = "";
+      const typing = setInterval(() => {
+        if (i < textToType.length) {
+          tagline.textContent += textToType.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 50);
+    }
   }
  
   /* --- Dynamic Project Cards, Filter & Modal --- */
@@ -142,9 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterBtns = document.querySelectorAll(".filter-btn");
 
   let currentTrack = "all";
+  let lastFocusedElement = null;
 
-  function openModal(project) {
+  function openModal(project, triggerBtn) {
     if (!modal) return;
+    lastFocusedElement = triggerBtn || document.activeElement;
+
     modal.querySelector("#modal-title").textContent = project.name;
     modal.querySelector("#modal-pitch").textContent = project.pitch;
 
@@ -177,14 +187,27 @@ document.addEventListener("DOMContentLoaded", () => {
       liveLink.style.display = "none";
     }
 
+    modal.setAttribute("aria-hidden", "false");
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
+
+    // Shift focus to close button for keyboard/screen-reader users
+    const closeBtn = modal.querySelector(".modal-close-btn");
+    if (closeBtn) {
+      closeBtn.focus();
+    }
   }
 
   function closeModal() {
     if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
     modal.classList.remove("active");
     document.body.style.overflow = "";
+
+    // Restore focus to the element that triggered the modal
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    }
   }
 
   function renderProjects(filterTrack = "all") {
@@ -219,8 +242,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
-      card.querySelector(".details-btn").addEventListener("click", () => {
-        openModal(project);
+      const detailsBtn = card.querySelector(".details-btn");
+      detailsBtn.addEventListener("click", () => {
+        openModal(project, detailsBtn);
       });
 
       projectsContainer.appendChild(card);
@@ -231,8 +255,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener("click", () => {
-        filterBtns.forEach(b => b.classList.remove("active"));
+        filterBtns.forEach(b => {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
         btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
         currentTrack = btn.getAttribute("data-track") || "all";
         renderProjects(currentTrack);
       });
@@ -242,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial render of all projects
   renderProjects("all");
 
-  // Modal event bindings
+  // Modal event bindings & Focus Trapping
   if (modal) {
     const closeModalBtn = modal.querySelector(".modal-close-btn");
     if (closeModalBtn) {
@@ -258,6 +286,41 @@ document.addEventListener("DOMContentLoaded", () => {
         closeModal();
       }
     });
+
+    // Keyboard Tab Trap inside open modal
+    modal.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && modal.classList.contains("active")) {
+        const focusables = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const visibleFocusables = Array.from(focusables).filter(el => el.offsetParent !== null);
+        if (visibleFocusables.length === 0) return;
+        const first = visibleFocusables[0];
+        const last = visibleFocusables[visibleFocusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+  }
+
+  /* --- Form Double-Submission Prevention --- */
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", () => {
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+    });
   }
 
   /* --- Dynamic Copyright Year --- */
@@ -268,17 +331,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* --- Scroll Animations --- */
   const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) {
+    sectionsToAnimate.forEach(section => {
+      section.classList.add('visible');
     });
-  }, {
-    threshold: 0.1
-  });
-  sectionsToAnimate.forEach(section => {
-    observer.observe(section);
-  });
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    sectionsToAnimate.forEach(section => {
+      observer.observe(section);
+    });
+  }
 });

@@ -23,6 +23,17 @@
   <link rel="manifest" href="assets/site.webmanifest" />
   <meta name="msapplication-TileColor" content="#2d89ef" />
   <meta name="theme-color" content="#ffffff" />
+  <script>
+    (function() {
+      try {
+        var isDark = localStorage.getItem("dark-mode") === "enabled" ||
+          (!("dark-mode" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) {
+          document.documentElement.classList.add("dark-mode");
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>
@@ -30,7 +41,7 @@
 
     <div class="intro">
       <h1>Sipo Mudenda</h1>
-      <p id="tagline"></p>
+      <p id="tagline">Backend &amp; Systems Engineer &mdash; Python APIs, data pipelines, &amp; C/C++20 systems.</p>
       <div class="metadata-bar">
         <span class="meta-item"><span class="meta-label">Location:</span> Lusaka, Zambia (UTC+2)</span>
         <span class="meta-separator" aria-hidden="true">&middot;</span>
@@ -53,7 +64,7 @@
       </nav>
     </div>
     <div class="hero-image">
-      <img src="assets/images/hero-banner.jpg" alt="A simple connection banner" />
+      <img src="assets/images/hero-banner.jpg" alt="A simple connection banner" width="1920" height="1080" fetchpriority="high" decoding="async" />
     </div>
   </header>
 
@@ -212,9 +223,9 @@
     <section id="projects" class="container fade-in-section">
       <h2>Projects</h2>
       <div class="project-filters" role="group" aria-label="Filter projects by engineering track">
-        <button class="filter-btn active" data-track="all">All</button>
-        <button class="filter-btn" data-track="backend">Backend</button>
-        <button class="filter-btn" data-track="systems">C++ / Systems</button>
+        <button class="filter-btn active" data-track="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-track="backend" aria-pressed="false">Backend</button>
+        <button class="filter-btn" data-track="systems" aria-pressed="false">C++ / Systems</button>
       </div>
       <div class="projects-container" id="projects-container">
         <p>Loading projects...</p>
@@ -227,15 +238,15 @@
       <form id="contact-form" action="https://formspree.io/f/xrbykawq" method="POST">
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" required maxlength="100" autocomplete="name">
         </div>
         <div class="form-group">
           <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required maxlength="100" autocomplete="email">
         </div>
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
+          <textarea id="message" name="message" rows="6" required maxlength="5000"></textarea>
         </div>
         <button type="submit" class="btn">Send Message</button>
       </form>
@@ -248,9 +259,9 @@
 
   <script src="js/script.js"></script>
 
-  <div id="project-modal" class="modal-overlay">
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-content">
-      <button class="modal-close-btn">&times;</button>
+      <button class="modal-close-btn" aria-label="Close project details">&times;</button>
       <h2 id="modal-title">Project Title</h2>
       <div id="modal-body">
         <p id="modal-pitch" class="modal-pitch"></p>
