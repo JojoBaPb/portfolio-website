@@ -30,3 +30,17 @@
 - Never read, print, reference, or commit `.env`, `.venv/`, `node_modules/`, credentials, API keys, or local filesystem paths.
 - Keep unreleased or confidential project details strictly out of the site (do not reference or expose details about private/stealth projects unless explicitly provided in a prompt).
 - Keep all code, comments, and copy sanitized and free of personal machine identifiers.
+
+## Public Positioning & Content Rules
+- **Identity:** Backend & Systems Engineer (Python, FastAPI, Django, PostgreSQL, Docker, C, C++20, Unreal Engine 5).
+- **Location & Availability:** Lusaka, Zambia (UTC+2, full overlap with European business hours). Open to remote work (contract or EOR) and relocation.
+- **Tone & Evidence:** Lead with concrete engineering mechanisms (e.g., JWT refresh-token blacklisting, RAII with `std::unique_ptr`, GDPR secret-key deletion flow) rather than vague buzzwords, generic superlatives, or unverified compliance/architecture claims.
+- **Content Scope:** Reference only verified public repositories (`github.com/JojoBaPb`) and claims directly backed by public code. Do not invent metrics, live demo URLs, or unverified credentials.
+- **Featured Projects (2 tracks — `backend` and `systems`):**
+  1. Nexus Job Board API (backend) — DRF, PostgreSQL, JWT refresh-token blacklisting, RBAC, OpenAPI.
+  2. Async URL Shortener (backend) — FastAPI, SQLAlchemy 2.0, asyncpg, PostgreSQL, GDPR secret-key deletion flow.
+  3. GraphQL CRM (backend) — Django, GraphQL, Celery, cron jobs.
+  4. C++20 Card Battle Engine (systems) — State pattern, `std::unique_ptr` ownership, `std::function` lambdas, CMake.
+  5. UE5 Cinematic Camera State Machine (systems) — C++ FSM (`EMenuStates`), Blueprint `TMap`, `VInterpTo`/`RInterpTo`.
+  6. C Systems Projects (systems) — `simple_shell` (pair project), `monty` bytecode interpreter, `printf`.
+- **Modal Structure:** Every project modal must include: one-line pitch, "What it demonstrates" bullets, "Key design decision", stack tags, GitHub link, and `liveDemo` only if genuinely live (otherwise `null`).
