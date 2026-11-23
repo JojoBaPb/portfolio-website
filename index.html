@@ -211,6 +211,11 @@
 
     <section id="projects" class="container fade-in-section">
       <h2>Projects</h2>
+      <div class="project-filters" role="group" aria-label="Filter projects by engineering track">
+        <button class="filter-btn active" data-track="all">All</button>
+        <button class="filter-btn" data-track="backend">Backend</button>
+        <button class="filter-btn" data-track="systems">C++ / Systems</button>
+      </div>
       <div class="projects-container" id="projects-container">
         <p>Loading projects...</p>
       </div>
@@ -248,14 +253,22 @@
       <button class="modal-close-btn">&times;</button>
       <h2 id="modal-title">Project Title</h2>
       <div id="modal-body">
-        <p id="modal-description">Project description goes here.</p>
-        <h3>Technologies Used:</h3>
-        <ul id="modal-tech-list">
-        </ul>
+        <p id="modal-pitch" class="modal-pitch"></p>
+        
+        <h3>What It Demonstrates</h3>
+        <ul id="modal-demonstrates-list" class="modal-demonstrates-list"></ul>
+        
+        <h3>Key Design Decision</h3>
+        <div class="modal-decision-box">
+          <p id="modal-decision" class="modal-decision"></p>
+        </div>
+
+        <h3>Technologies &amp; Architecture</h3>
+        <ul id="modal-tech-list"></ul>
       </div>
       <div class="modal-links">
-        <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer">View Live Demo</a>
         <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer">View Live Demo</a>
       </div>
     </div>
   </div>
