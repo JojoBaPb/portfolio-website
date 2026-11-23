@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* --- Tagline Typing Effect --- */
   const tagline = document.getElementById("tagline");
   if (tagline) {
-    const textToType = "A developer building things for everyone.";
+    const textToType = "Backend & Systems Engineer \u2014 Python APIs, data pipelines, & C/C++20 systems.";
     let i = 0;
     tagline.textContent = "";
     const typing = setInterval(() => {

@@ -129,6 +129,41 @@ h1, h2, h3 {
   color: var(--text-color);
 }
 
+/* Metadata Bar */
+.metadata-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 15px auto 25px auto;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(69, 162, 158, 0.3);
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+}
+
+body.dark-mode .metadata-bar {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(102, 252, 241, 0.3);
+}
+
+.meta-item {
+  color: var(--text-color);
+}
+
+.meta-label {
+  color: var(--primary-accent);
+  font-weight: 600;
+}
+
+.meta-separator {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -262,17 +297,14 @@ to {
 
 /* 9. Skills Section */
 .skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
   margin-top: 30px;
 }
 
 .skill-category {
-  flex: 1;
-  min-width: 250px;
+  text-align: center;
 }
 
 .skill-category h3 {
@@ -430,10 +462,27 @@ to {
 }
 
 /* 12. Resume/Experience Section */
+.timeline-block {
+  margin-bottom: 40px;
+}
+
+.timeline-category-heading {
+  font-size: 1.25rem;
+  color: var(--primary-accent);
+  margin-bottom: 15px;
+  text-align: left;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .resume-timeline {
   position: relative;
   max-width: 750px;
-  margin: 30px auto;
+  margin: 20px auto 30px auto;
   padding-left: 20px;
   border-left: 3px solid var(--primary-accent);
 }
@@ -441,6 +490,19 @@ to {
 .resume-item {
   margin-bottom: 30px;
   position: relative;
+}
+
+.resume-item code {
+  font-family: var(--font-heading);
+  background: rgba(69, 162, 158, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+body.dark-mode .resume-item code {
+  background: rgba(102, 252, 241, 0.15);
 }
 
 .resume-item::before {
